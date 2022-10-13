@@ -40,7 +40,7 @@ while(respuesta == "si"):
 
     edad = int(input("Ingrese la edad (mayor a 18):  "))
     while(edad < 18):
-        nombre = input("ERROR, reingrese el nombre del personaje:  ")
+        edad = int(input("ERROR, reingrese la edad del personaje:  "))
 
     sexo = input("Ingrese el sexo (m), (f), (nb):  ")
     while(sexo != "m" and sexo != "f" and sexo != "nb"):
@@ -49,7 +49,6 @@ while(respuesta == "si"):
     habilidad = input("Ingrese la habilidad (fuerza), (magia), (inteligencia):  ")
     while(habilidad != "fuerza" and habilidad != "magia" and habilidad != "inteligencia"):
         habilidad = input("ERROR, reingrese la habilidad (fuerza), (magia), (inteligencia):  ")
-
 
     if(edad > edad_mayor or flag_edad_mayor == False):
         edad_mayor = edad
