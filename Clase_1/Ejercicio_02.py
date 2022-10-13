@@ -22,6 +22,8 @@ alimento_mas_caro = 0
 flag_alimento_mas_caro = False
 tipo_alimento_mas_caro = ""
 
+precio_total = 0
+
 while(respuesta == "si"):
 
     peso = float(input("Ingrese el peso  (entre 10 y 100 kilos):  "))
@@ -44,10 +46,10 @@ while(respuesta == "si"):
     total_kilos += peso
     acumulador_precios += precio_por_kilo
     cantidad_productos += 1
-    
+    precio_total = precio_por_kilo * total_kilos
     respuesta = input("para CONTINUAR (si)\npara FINALIZAR (otra tecla):  ")
 
-precio_total = acumulador_precios * total_kilos
+    
 
 if(total_kilos > 100 and total_kilos < 300):
     precio_con_descuento = precio_total * 0.85
@@ -57,12 +59,9 @@ elif(total_kilos > 300):
     precio_con_descuento = precio_total * 0.75
     print("El importe total a pagar con descuento es: {0}".format(precio_con_descuento))
     
-promedio = precio_total / cantidad_productos
+promedio = acumulador_precios / cantidad_productos
 
 print("El importe total a pagar en bruto es: {0}".format(precio_total))
 
 print("El tipo de alimento mas caro es: {0}".format(tipo_alimento_mas_caro))
 print("El promedio de precio por kilo es: {0}".format(promedio))
-
-
-#ESTA MAL, ALGO MAL EN LA MULTIPLICACION

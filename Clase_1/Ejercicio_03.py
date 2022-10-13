@@ -12,11 +12,11 @@
 # D- El promedio de edad entre Heroinas.
 # E- El promedio de edad entre Heroes de fuerza.
 
-
 respuesta = "si"
 
 edad_fuerza_mas_joven = 999999999999999999999999999999999999999
 flag_edad_fuerza_mas_joven = False
+edad_fuerza_mas_joven_nombre = ""
 
 edad_mayor = 0
 flag_edad_mayor = False
@@ -28,6 +28,9 @@ acumulador_edad_heroinas = 0
 
 cantidad_heroes_fuerza = 0
 acumulador_edad_heroes_fuerza = 0
+
+promedio_heroes = 0
+promedio_heroinas = 0
 
 while(respuesta == "si"):
 
@@ -74,22 +77,18 @@ while(respuesta == "si"):
 
     respuesta = input("para CONTINUAR (si)\npara FINALIZAR (otra tecla):  ")
 
-promedio_heroinas =  acumulador_edad_heroinas / cantidad_heroinas
-promedio_heroes = acumulador_edad_heroes_fuerza / cantidad_heroes_fuerza
+if(cantidad_heroinas > 0 ):
+    promedio_heroinas =  acumulador_edad_heroinas / cantidad_heroinas
+else:
+    print("No se ingreso ninguna heroina")
+
+if(cantidad_heroes_fuerza > 0):
+    promedio_heroes = acumulador_edad_heroes_fuerza / cantidad_heroes_fuerza
+else:
+    print("No se ingreso ningun heroe")
 
 print("Nombre del personaje de fuerza mas joven:  {0}".format(edad_fuerza_mas_joven_nombre))
 print("El nombre del personaje  de mayor edad es: {0} , y su sexo: {1}".format(nombre_mayor_edad, sexo_mayor_edad))
 print("La cantidad de heroinas de fuerza/magia es: {0}".format(cantidad_heroinas_habilidades))
 print("El promedio de edad entre heroinas es: {0}".format(promedio_heroinas))
 print("El promedio de edad entre heroes es: {0}".format(promedio_heroes))
-
-# A- Dar el nombre de Héroe | Heroína de 'fuerza' más joven.
-# B- El sexo y nombre de Heroe | Heroína de mayor edad.
-# C- La cantidad de Heroinas que tienen habilidades de 'fuerza' o 'magia'.
-# D- El promedio de edad entre Heroinas.
-# E- El promedio de edad entre Heroes de fuerza.
-
-
-
-
-#ERROR EN LA LINEA 77
