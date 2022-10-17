@@ -121,8 +121,8 @@ def informar_nombres_asociados_puntos_anteriores(lista_personajes:list):
 
     Devuelve el nombre de los personajes de los anteriores puntos
     '''
-    personaje_mas_alto = buscar_personaje_mas_alto(lista_personajes)
-    personaje_mas_bajo = buscar_personaje_mas_bajo(lista_personajes)
+    personaje_mas_alto = calcular_personaje_mas_alto(lista_personajes)
+    personaje_mas_bajo = calcular_personaje_mas_bajo(lista_personajes)
 
     mensaje = "El nombre del personaje mas alto es: {0} \nEl nombre del personaje mas bajo es: {1}".format(personaje_mas_alto["nombre"], personaje_mas_bajo["nombre"])
 
@@ -159,26 +159,22 @@ def menu():
 
         respuesta = input()
 
-        if(respuesta == 1):
+        if(respuesta == "1"):
             analizar_set_datos(lista_personajes)
-        elif(respuesta == 2):
+        elif(respuesta == "2"):
             imprimir_nombres(lista_personajes)
-        elif(respuesta == 3):
+        elif(respuesta == "3"):
             imprimir_nombres_alturas(lista_personajes)
-        elif(respuesta == 4):
+        elif(respuesta == "4"):
             print(calcular_personaje_mas_alto(lista_personajes))
-        elif(respuesta == 5):
+        elif(respuesta == "5"):
             print(calcular_personaje_mas_bajo(lista_personajes))
-        elif(respuesta == 6):
+        elif(respuesta == "6"):
             print(calcular_altura_promedio(lista_personajes))
-        elif(respuesta == 7):
+        elif(respuesta == "7"):
             print(informar_nombres_asociados_puntos_anteriores(lista_personajes))
-        elif(respuesta == 8):
+        elif(respuesta == "8"):
             print(calcular_personaje_mas_y_menos_pesado(lista_personajes))
-        elif(respuesta == 9):
+        elif(respuesta == "9"):
             break
 menu()
-
-
-
-#NO SE QUE PASA CON EL MENU
