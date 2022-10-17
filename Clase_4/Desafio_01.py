@@ -34,6 +34,12 @@ def normalizar_datos(lista_personajes:list):
 
 normalizar_datos(lista_personajes)
 
+def mostrar_personaje(personaje:dict):
+    '''
+    Muestra prolijamente el personaje que recibe
+    '''
+    print("\nNombre: {0} \nIdentidad: {1} \nEmpresa: {2} \nAltura: {3} \nPeso: {4} \nGenero: {5} \nColor de ojos: {6} \nColor de pelo: {7} \nFuerza: {8} \nInteligencia: {9}\n".format(personaje["nombre"], personaje["identidad"], personaje["empresa"], personaje["altura"], personaje["peso"], personaje["genero"], personaje["color_ojos"], personaje["color_pelo"], personaje["fuerza"], personaje["inteligencia"]))
+
 def buscar_primer_femenino(lista_personajes:list)->dict:
     '''
     Busca el primer femenino
@@ -140,33 +146,33 @@ def imprimir_nombre_femeninos(lista_personajes:list):
 
 def calcular_masculino_mas_alto(lista_personajes:list):
     '''
-    Busca al personaje masculino mas alto y lo retorna
+    Busca al personaje masculino mas alto y lo muestra
 
     Recibe la lista de personajes
     '''
     masculino_mas_alto = calcula_maximo_minimo(lista_personajes, "altura", "maximo")
 
-    return masculino_mas_alto
+    mostrar_personaje(masculino_mas_alto)
 #-----------------------------------------PUNTO C-------------------------------------------------------------------------
 def calcular_femenino_mas_alto(lista_personajes:list):
     '''
-    Busca al personaje femenino mas alto y lo retorna
+    Busca al personaje femenino mas alto y lo muestra
 
     Recibe la lista de personajes
     '''
     femenino_mas_alto = calcula_maximo_minimo(lista_personajes, "altura", "maximo")
 
-    return femenino_mas_alto
+    mostrar_personaje(femenino_mas_alto)
 #-----------------------------------------PUNTO D-------------------------------------------------------------------------
 def calcular_masculino_mas_bajo(lista_personajes:list):
     '''
-    Busca al personaje masculino mas bajo y lo retorna
+    Busca al personaje masculino mas bajo y lo muestra
 
     Recibe la lista de personajes
     '''
     masculino_mas_bajo = calcula_maximo_minimo(lista_personajes, "altura", "minimo")
 
-    return masculino_mas_bajo
+    mostrar_personaje(masculino_mas_bajo)
 #-----------------------------------------PUNTO E-------------------------------------------------------------------------
 def calcular_femenino_mas_bajo(lista_personajes:list):
     '''
@@ -176,7 +182,7 @@ def calcular_femenino_mas_bajo(lista_personajes:list):
     '''
     femenino_mas_bajo = calcula_maximo_minimo(lista_personajes, "altura", "minimo")
 
-    return femenino_mas_bajo
+    mostrar_personaje(femenino_mas_bajo)
 #-----------------------------------------PUNTO F-------------------------------------------------------------------------
 
 def calcular_promedio_altura_masculino(lista_personajes:list):
@@ -367,13 +373,13 @@ def menu():
         elif(respuesta == "2"):
             imprimir_nombre_femeninos(lista_femeninos)
         elif(respuesta == "3"):
-            print(calcular_masculino_mas_alto(lista_masculinos))
+            calcular_masculino_mas_alto(lista_masculinos)
         elif(respuesta == "4"):
-            print(calcular_femenino_mas_alto(lista_femeninos))
+            calcular_femenino_mas_alto(lista_femeninos)
         elif(respuesta == "5"):
-            print(calcular_masculino_mas_bajo(lista_masculinos))
+            calcular_masculino_mas_bajo(lista_masculinos)
         elif(respuesta == "6"):
-            print(calcular_femenino_mas_bajo(lista_femeninos))
+            calcular_femenino_mas_bajo(lista_femeninos)
         elif(respuesta == "7"):
             print(calcular_promedio_altura_masculino(lista_masculinos))
         elif(respuesta == "8"):

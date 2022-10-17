@@ -21,9 +21,9 @@ def normalizar_datos(lista_personajes:list):
         personaje["peso"] = float(personaje["peso"])
         personaje["fuerza"] = int(personaje["fuerza"])
 normalizar_datos(lista_personajes)
-# def mostrar(personaje:dict):
+def mostrar_personaje(personaje:dict):
 
-#     print("Nombre: {0} \nIdentidad: {1} \nEmpresa: {2} \nAltura: {3} \nGenero: {4} \nColor de ojos: {5} \nColor de pelo: {6} \nFuerza: {7}\nInteligencia: {8}".format(personaje["nombre"], personaje["identidad"], personaje["empresa"], personaje["altura"], personaje["genero"], personaje["color_ojos"], personaje["color_pelo"], personaje["fuerza"], personaje["inteligencia"]))
+    print("Nombre: {0} \nIdentidad: {1} \nEmpresa: {2} \nAltura: {3} \nGenero: {4} \nColor de ojos: {5} \nColor de pelo: {6} \nFuerza: {7}\nInteligencia: {8}".format(personaje["nombre"], personaje["identidad"], personaje["empresa"], personaje["altura"], personaje["genero"], personaje["color_ojos"], personaje["color_pelo"], personaje["fuerza"], personaje["inteligencia"]))
 
 def analizar_set_datos(lista_personajes:list):
     '''
