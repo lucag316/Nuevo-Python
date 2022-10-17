@@ -13,15 +13,17 @@
 
 from data_stark import lista_personajes
 
-# def mostrar(lista:list):
-#     '''
-#     Muestra mas prolijo a los personajes de la lista que recibe
+def normalizar_datos(lista_personajes:list):
 
-#     Recibe una lista
-#     '''
-#     for elemento in lista:
-#         print("Nombre: {0} \nIdentidad: {1} \nEmpresa: {2} \nAltura: {3} \nGenero: {4} \nColor de ojos: {5} \nColor de pelo: {6} \nFuerza: {7}\nInteligencia: {8}".format(elemento["nombre"], elemento["identidad"], elemento["empresa"], elemento["altura"], elemento["genero"], elemento["color_ojos"], elemento["color_pelo"], elemento["fuerza"], elemento["inteligencia"]))
+    for personaje in lista_personajes:
 
+        personaje["altura"] = float(personaje["altura"])
+        personaje["peso"] = float(personaje["peso"])
+        personaje["fuerza"] = int(personaje["fuerza"])
+normalizar_datos(lista_personajes)
+# def mostrar(personaje:dict):
+
+#     print("Nombre: {0} \nIdentidad: {1} \nEmpresa: {2} \nAltura: {3} \nGenero: {4} \nColor de ojos: {5} \nColor de pelo: {6} \nFuerza: {7}\nInteligencia: {8}".format(personaje["nombre"], personaje["identidad"], personaje["empresa"], personaje["altura"], personaje["genero"], personaje["color_ojos"], personaje["color_pelo"], personaje["fuerza"], personaje["inteligencia"]))
 
 def analizar_set_datos(lista_personajes:list):
     '''
@@ -31,9 +33,7 @@ def analizar_set_datos(lista_personajes:list):
     '''
     for personaje in lista_personajes:
         print(personaje)
-
 #-------------------------------------------PUNTO A-----------------------------------------------------------------------
-#analizar_set_datos(lista_personajes)
 
 def imprimir_nombres(lista_personajes:list):
     '''
@@ -43,9 +43,7 @@ def imprimir_nombres(lista_personajes:list):
     '''
     for personaje in lista_personajes:
         print("Nombre: {0}".format(personaje["nombre"]))
-
 #-------------------------------------------PUNTO B-----------------------------------------------------------------------
-#imprimir_nombres(lista_personajes)
 
 def  imprimir_nombres_alturas(lista_personajes:list):
     '''
@@ -55,12 +53,9 @@ def  imprimir_nombres_alturas(lista_personajes:list):
     '''
     for personaje in lista_personajes:
         print("Nombre: {0}    -     Altura: {1}".format(personaje["nombre"], personaje["altura"]))
-
 #-------------------------------------------PUNTO C-----------------------------------------------------------------------
-#imprimir_nombres_alturas(lista_personajes)
 
-
-def buscar_personaje_mas_alto(lista_personajes:list):
+def calcular_personaje_mas_alto(lista_personajes:list):
     '''
     Busca en la lista de personajes al mas alto
 
@@ -72,25 +67,13 @@ def buscar_personaje_mas_alto(lista_personajes:list):
 
     for personaje in lista_personajes:
 
-        if(type(personaje["altura"]) != type(float())):
-            personaje["altura"] = float(personaje["altura"])
-
-        if(type(personaje["peso"]) != type(float())):
-            personaje["peso"] = float(personaje["peso"])
-
-        if(type(personaje["fuerza"]) != type(int())):
-            personaje["fuerza"] = int(personaje["fuerza"])
-
-
         if(personaje["altura"] > personaje_mas_alto["altura"]):
             personaje_mas_alto = personaje
 
     return personaje_mas_alto
 #-------------------------------------------PUNTO D-----------------------------------------------------------------------
-#print(buscar_personaje_mas_alto(lista_personajes))
 
-
-def buscar_personaje_mas_bajo(lista_personajes:list):
+def calcular_personaje_mas_bajo(lista_personajes:list):
     '''
     Busca en la lista de personajes al mas bajo
 
@@ -102,24 +85,13 @@ def buscar_personaje_mas_bajo(lista_personajes:list):
 
     for personaje in lista_personajes:
 
-        if(type(personaje["altura"]) != type(float())):
-            personaje["altura"] = float(personaje["altura"])
-
-        if(type(personaje["peso"]) != type(float())):
-            personaje["peso"] = float(personaje["peso"])
-
-        if(type(personaje["fuerza"]) != type(int())):
-            personaje["fuerza"] = int(personaje["fuerza"])
-
-
         if(personaje["altura"] < personaje_mas_bajo["altura"]):
             personaje_mas_bajo = personaje
 
     return personaje_mas_bajo
 #-------------------------------------------PUNTO E-----------------------------------------------------------------------
-#print(buscar_personaje_mas_bajo(lista_personajes))
 
-def buscar_altura_promedio(lista_personajes:list):
+def calcular_altura_promedio(lista_personajes:list):
     '''
     Busca en la lista de personajes la altura promedio
 
@@ -133,9 +105,6 @@ def buscar_altura_promedio(lista_personajes:list):
 
     for personaje in lista_personajes:
 
-        if(type(personaje["altura"]) != type(float())):
-            personaje["altura"] = float(personaje["altura"])
-
         acumulador_alturas  += personaje["altura"]
         cantidad_personajes += 1
 
@@ -143,7 +112,6 @@ def buscar_altura_promedio(lista_personajes:list):
 
     return promedio_altura
 #-------------------------------------------PUNTO F----------------------------------------------------------------------
-#print(buscar_altura_promedio(lista_personajes))
 
 def informar_nombres_asociados_puntos_anteriores(lista_personajes:list):
     '''
@@ -160,8 +128,6 @@ def informar_nombres_asociados_puntos_anteriores(lista_personajes:list):
 
     return mensaje
 #-------------------------------------------PUNTO G-----------------------------------------------------------------------
-#print(informar_nombres_asociados_puntos_anteriores(lista_personajes))
-
 
 def calcular_personaje_mas_y_menos_pesado(lista_personajes:list):
     '''
@@ -171,26 +137,48 @@ def calcular_personaje_mas_y_menos_pesado(lista_personajes:list):
 
     Retorna a los dos personajes
     '''
+    personaje_mas_pesado = lista_personajes[0]
+    personaje_menos_pesado = lista_personajes[0]
 
     for personaje in lista_personajes:
-        pass
+
+        if(personaje["peso"] > personaje_mas_pesado["peso"]):
+            personaje_mas_pesado = personaje
+        
+        elif(personaje["peso"] < personaje_menos_pesado["peso"]):
+            personaje_menos_pesado = personaje
+
+    mensaje = "El personaje mas pesado es: {0} \nEl personaje menos pesado es: {1}".format(personaje_mas_pesado, personaje_menos_pesado)
+
+    return mensaje
 #-------------------------------------------PUNTO H-----------------------------------------------------------------------
 
-# H- Calcular e informar cual es el superhéroe más y menos pesado.
-# I- Ordenar el código implementando una función para cada uno de los valores informados.
-# J- Construir un menú que permita elegir qué dato obtener
+def menu():
+    while True:
+        print("1- Analizar set de datos \n2- Nombrar a todos los personajes \n3- Nombre y altura de los personajes \n4- Personaje mas alto \n5- Personaje mas bajo \n6- Promedio de altura \n7- Nombre del personaje mas alto y mas bajo \n8- Personaje mas y menos pesado \n9- Salir")
 
-'''
-    "nombre": "Howard the Duck",
-    "identidad": "Howard (Last name unrevealed)",
-    "empresa": "Marvel Comics",
-    "altura": "79.349999999999994",
-    "peso": "18.449999999999999",
-    "genero": "M",
-    "color_ojos": "Brown",
-    "color_pelo": "Yellow",
-    "fuerza": "2",
-    "inteligencia": ""
-'''
+        respuesta = input()
 
-#FALTA TEMINAR
+        if(respuesta == 1):
+            analizar_set_datos(lista_personajes)
+        elif(respuesta == 2):
+            imprimir_nombres(lista_personajes)
+        elif(respuesta == 3):
+            imprimir_nombres_alturas(lista_personajes)
+        elif(respuesta == 4):
+            print(calcular_personaje_mas_alto(lista_personajes))
+        elif(respuesta == 5):
+            print(calcular_personaje_mas_bajo(lista_personajes))
+        elif(respuesta == 6):
+            print(calcular_altura_promedio(lista_personajes))
+        elif(respuesta == 7):
+            print(informar_nombres_asociados_puntos_anteriores(lista_personajes))
+        elif(respuesta == 8):
+            print(calcular_personaje_mas_y_menos_pesado(lista_personajes))
+        elif(respuesta == 9):
+            break
+menu()
+
+
+
+#NO SE QUE PASA CON EL MENU
