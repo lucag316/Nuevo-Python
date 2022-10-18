@@ -23,11 +23,11 @@
 #
 #format()   ya lo se usar, para el mensaje
 #
-#fstring
+#fstring   permite meter variable adentro de las cadenas, como el format
 #
+#len(cadena)  permite saber la longitud de la  cadena
 #
-#
-#
+#cadena([indice de donde empieza: indice donde termina])    corta un pedazo de la cadena
 #
 #
 #
