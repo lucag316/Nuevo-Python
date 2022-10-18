@@ -39,3 +39,40 @@
 #4.1-  Crear la función 'calcular_max' la cual recibirá por parámetro la lista de héroes y una key (string) la cual representará el dato que deberá ser evaluado a efectos de determinar cuál es el máximo de la lista. Por ejemplo la función deberá poder calcular: el peso, la altura o fuerza máximas y retornar el héroe que tenga el dato más alto.
 # Ejemplo de llamada:
 # 	calcular_max(lista, 'edad')
+
+
+
+
+#4.2-  Crear la función 'calcular_min' la cual recibirá por parámetro la lista de héroes y una key (string) la cual representará el dato que deberá ser evaluado a efectos de determinar cuál es el mínimo de la lista. Por ejemplo la función deberá poder calcular: el peso, la altura o fuerza máximas y retornar el héroe que tenga el dato más bajo. 
+# Ejemplo de llamada:
+# 	calcular_min(lista, 'edad')
+
+
+
+
+
+#4.3- Crear la funcion 'calcular_max_min_dato' la cual recibira tres parámetros:
+# La lista de héroes
+# El tipo de cálculo a realizar: es un valor string que puede tomar los valores ‘maximo’ o ‘minimo’
+# Un string que representa la key del dato a calcular, por ejemplo: ‘altura’, ‘peso’, ‘edad’, etc.
+# La función deberá retornar el héroe que cumpla con la condición pedida. Reutilizar las funciones hechas en los puntos 4.1 y 4.2
+# Ejemplo de llamada:
+# calcular_max_min_dato(lista, "maximo", "edad")
+
+
+
+
+
+
+#4.4- Crear la función 'stark_calcular_imprimir_heroe' la cual recibirá tres parámetros: 
+# La lista de héroes
+# El tipo de cálculo a realizar: es un valor string que puede tomar los valores ‘maximo’ o ‘minimo’
+# Un string que representa la key del dato a calcular, por ejemplo: ‘altura’, ‘peso’, ‘edad’, etc.
+# Con este se resuelve el Ej 3, Ej 4, Ej 6 y Ej 7 del desafío #00
+# La función deberá obtener el héroe que cumpla dichas condiciones, imprimir su nombre y el valor calculado. Reutilizar las funciones de los puntos:
+# punto 1.2, punto: 2 y punto 4.3 
+# Validar que la lista de héroes no esté vacía para realizar sus acciones, caso contrario no hará nada y retornara -1.
+# Ejemplo de llamada:
+#  	stark_calcular_imprimir_heroe (lista, "maximo", "edad")
+#             Ejemplo de salida:
+# 	Mayor altura: Nombre: Howard the Duck | altura: 79.34
