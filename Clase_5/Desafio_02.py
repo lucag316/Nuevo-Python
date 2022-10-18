@@ -1,5 +1,5 @@
 from data_stark import lista_personajes
-
+import re
 '''
     "nombre": "Howard the Duck",
     "identidad": "Howard (Last name unrevealed)",
@@ -240,48 +240,8 @@ def imprimir_menu():
     Imprime el menu de opciones, reutiliza la funcion 1.2
     '''
 
-    while True:
-
-        print("1- Imprimir nombres de los personajes \n2- Imprimir nombre y alturas \n3- Calcular heroe segun su clave y tipo de calculo \n4- Calcular promedio segun la  clave \n5- Promedio altura   \n6- Salir")
-
-        respuesta = input()
-
-        if(respuesta == "1"):
-            stark_imprimir_nombres_heroes(lista_personajes)
-        elif(respuesta == "2"):
-            stark_imprimir_nombres_alturas(lista_personajes)
-        elif(respuesta == "3"):
-
-            key = input("Ingrese la clave que desea calcular (altura, peso,  fuerza):  ")
-            while(key  != "altura" and key != "peso" and key != "fuerza"):
-                key = input("ERROR, reingrese la clave que desea calcular (altura, peso,  fuerza):  ")
-
-            tipo = input("Ingrese el tipo de calculo(maximo o minimo):  ")
-            while(tipo != "maximo" and  tipo != "minimo"):
-                tipo = input("ERROR, reingrese el tipo de calculo(maximo o minimo):  ")
-
-            stark_calcular_imprimir_heroe(lista_personajes, key, tipo)
-        elif(respuesta == "4"):
-
-            key = input("Ingrese la clave que desea calcular (altura, peso,  fuerza):  ")
-            while(key  != "altura" and key != "peso" and key != "fuerza"):
-                key = input("ERROR, reingrese la clave que desea calcular (altura, peso,  fuerza):  ")
-
-            calcular_promedio(lista_personajes, key)
-        elif(respuesta == "5"):
-            stark_calcular_imprimir_promedio_altura(lista_personajes)
-        elif(respuesta == "6"):
-            break
+    print("1- Imprimir nombres de los personajes \n2- Imprimir nombre y alturas \n3- Calcular heroe segun su clave y tipo de calculo \n4- Calcular promedio segun la  clave \n5- Promedio altura   \n6- Salir")
 #----------------------------------------------6.1----------------------------------------------------------------------
-imprimir_menu()
-# 6.1-  Crear la función "imprimir_menu" que imprima el menú de opciones por pantalla, el cual permite utilizar toda la funcionalidad ya programada. Se deberá reutilizar la función antes creada encargada de imprimir un string (1.2)
-
-
-
-
-
-
-
 
 def validar_entero(numero:str):
     '''
@@ -289,58 +249,42 @@ def validar_entero(numero:str):
 
     Retorna True en caso de serlo, False caso contrario
     '''
-    if(type(numero) == type(str())):
-        pass
+
+    # if(type(numero) == type("")):
+    #     numero = int(numero)
+    #     if(numero == int):
+    #         retorno = True
+    #     else:
+    #         retorno = False
+
+    # return retorno
+
+    variable = re.findall("a-z",numero)
+
+    if(variable):
+        retorno = False
+    else:
+        retorno = True
+
+    return retorno
 #----------------------------------------------6.2----------------------------------------------------------------------
-
-# 6.2- Crear la función “validar_entero” la cual recibirá por parámetro un string de número el cual deberá verificar que sea un string conformado únicamente por dígitos. Retornara True en caso de serlo, False caso contrario
-
-
-
-
-
-
-
 
 def stark_menu_principal():
     '''
     Imprime el  menu de opciones
     '''
+    imprimir_menu()
+
+    respuesta = input("Elija una opcion: \n@")
+    variable = validar_entero(respuesta)
+
+    if(variable == True):
+        retorno = int(respuesta)
+
+    else:
+        retorno = -1
+
+    return retorno
 #----------------------------------------------6.3----------------------------------------------------------------------
-
-# 6.3- Crear la función 'stark_menu_principal' la cual se encargará de imprimir el menú de opciones y le pedirá al usuario que ingrese el número de una de las opciones elegidas y deberá validarlo. En caso de ser correcto dicho número, lo retornara casteado a entero, caso contrario retorna -1. Reutilizar las funciones del ejercicio 6.1 y 6.2
-
-
-
-
-def stark_marvel_app():
-    '''
-    '''
-#----------------------------------------------7----------------------------------------------------------------------
-
-# 7- Crear la función 'stark_marvel_app' la cual recibirá por parámetro la lista de héroes y se encargará de la ejecución principal de nuestro programa. 
-# Utilizar if/elif o match según prefiera (match solo para los que cuentan con python 3.10+). Debe informar por consola en caso de seleccionar una opción incorrecta y volver a pedir el dato al usuario. Reutilizar las funciones con prefijo 'stark_' donde crea correspondiente.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #EN EL 5.4 NO SE COMO USAR LA  FUNCION 5.1 (ESTA HECHO PERO SIN REUTILIZAR LA OTRA FUNCION)
