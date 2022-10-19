@@ -32,6 +32,40 @@
 #
 #
 #
+#                                           EXPRESIONES REGULARES
+#
+#
+#re.split('separador', cadena)    para cortar la cadena con las letra o simbolos del separador
+#
+#re.search()                        se usa mas para validar datos
+#
+#re.findall('lo que quiero recuperar', cadena)          es lo contrario del split, te retorna la lista con lo recuperas                    
+#
+#re.sub('abc', '', cadena)      busca abc y reemplazala por vacio
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
