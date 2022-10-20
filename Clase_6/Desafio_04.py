@@ -149,31 +149,66 @@ def stark_generar_codigos_heroes(lista_heroes:list):
 
     Imprime por pantalla, ejemplo: (El código del primer héroe es: M-00000001), en caso de encontrar algun error informa por pantalla ‘El origen de datos no contiene el formato correcto’
     '''
-    i = 1
+    i = 0
+
     if(len(lista_heroes) > 0):
 
         for heroe in lista_heroes:
 
             if(type(heroe) == type(dict())):
 
-                agregar_codigo_heroe(heroe, i)
                 i += 1
+                agregar_codigo_heroe(heroe, i)
+                
+                print("El código del héroe es: {0}".format(heroe["codigo_heroe"]))
 
-                print("El código del primer héroe es: {0}".format(heroe["codigo_heroe"]))
+        print("Se asignaron {0} códigos".format(i))
 
+    else:
+        print("El origen de datos no contiene el formato correcto")
 #------------------------------------------------2.3------------------------------------------------------------------
-stark_generar_codigos_heroes(lista_personajes)
+#stark_generar_codigos_heroes(lista_personajes)
+#FALTA VALIDAR QUE TODOS LOS ELEMENTOS TENGAN LA CLAVE GENERO
+
+def sanitizar_entero(numero_str:str):
+    '''
+    La funcion analiza si es un numero entero positivo
+
+    Recibe un numero tipo string que representa un posible numero entero
+
+    si contiene caracteres no numericos retorna un -1, si el numero es negativo retorna un -2, si ocurren otros errores que no permiten convertirlo a entero retorna un -3, si es un numero entero positivo lo retorna convertido a entero
+    '''
+    encontrar_no_numericos = re.findall("[a-zA-Z]+", numero_str)
+    
+    retorno = -1
+
+    if(len(encontrar_no_numericos) == 0):
+
+        numero_str = numero_str.strip()
+
+        numero_int = int(numero_str)
+
+        if(numero_int < 0):
+            retorno = -2
+
+        elif(numero_int > 0):
+            retorno = numero_int
+
+        else:
+            retorno = -3
 
 
-# Una vez finalizado imprimir por pantalla un mensaje como el siguiente:
-# (## representa la cantidad de códigos generados):
-# Se asignaron ## códigos 
-# *   El código del primer héroe es: 		M-00000001
-# * El código del del último héroe es: 	M-00001224
+    return retorno
+#------------------------------------------------3.1------------------------------------------------------------------
+print(sanitizar_entero("35484864"))
 
 
-# Todos los elementos de la lista sean del tipo diccionario
-# Todos los elementos contengan la clave ‘genero’
-# En caso de encontrar algún error, informar por pantalla: ‘El origen de datos no contiene el formato correcto’
-# 	La función no retorna ningún valor.
+
+# Si ocurren otros errores que no permiten convertirlo a entero entonces se deberá retornar -3
+# También deberá quitar los espacios en blanco de atras y adelante del string en caso que los tuviese
+# En caso que se verifique que el texto contenido en el string es un número entero positivo, retornarlo convertido en entero
+
+
+
+
 
