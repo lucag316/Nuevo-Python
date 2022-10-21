@@ -184,29 +184,86 @@ def sanitizar_entero(numero_str:str):
 
     if(len(encontrar_no_numericos) == 0):
 
+        encontrar_numero = re.findall("^[+-]?[0-9]+$", numero_str)
         numero_str = numero_str.strip()
 
-        numero_int = int(numero_str)
+        
+        if(len(encontrar_numero) == 1):
+            numero_int = int(numero_str)
 
-        if(numero_int < 0):
-            retorno = -2
+            if(type(numero_int) == type(int())):
+                
+                if(numero_int > 0):
+                    retorno = numero_int
 
-        elif(numero_int > 0):
-            retorno = numero_int
+                else:
+                    retorno = -2
 
         else:
             retorno = -3
 
-
     return retorno
 #------------------------------------------------3.1------------------------------------------------------------------
-print(sanitizar_entero("35484864"))
+#print(sanitizar_entero("468"))
+
+def sanitizar_flotante(numero_str:str):
+    '''
+    La funcion analiza si es un flotante positivo
+
+    Recibe un numero tipo string que representa un posible numero decimal
+
+    si contiene caracteres no numericos retorna un -1, si el numero es negativo retorna un -2, si ocurren otros errores que no permiten convertirlo a entero retorna un -3, si es un numero entero positivo lo retorna convertido a flotante
+    '''
+    encontrar_no_numericos = re.findall("[a-zA-Z]+", numero_str)
+    
+    retorno = -1
+
+    if(len(encontrar_no_numericos) == 0):
+
+        encontrar_numero = re.findall("^[+-]?[0-9]+$", numero_str)
+        numero_str = numero_str.strip()
+
+        
+        if(len(encontrar_numero) == 1):
+            numero_float = float(numero_str)
+
+            if(type(numero_float) == type(float())):
+                
+                if(numero_float > 0):
+                    retorno = numero_float
+
+                else:
+                    retorno = -2
+
+        else:
+            retorno = -3
+
+    return retorno
+#------------------------------------------------3.2------------------------------------------------------------------
+#print(sanitizar_entero("468"))
+#NO SE SI ESTA BIEN (NO SE SI TIENE QUE PODER ACEPTAR PUNTOS O COMAS, POR SI ES DECIMAL)
 
 
+def sanitizar_string(valor_str:str, valor_por_defecto:str):
+    '''
+    La funcion analiza si el  string recibido es solo  texto, en caso de encontrarse números retorna “N/A”
 
-# Si ocurren otros errores que no permiten convertirlo a entero entonces se deberá retornar -3
-# También deberá quitar los espacios en blanco de atras y adelante del string en caso que los tuviese
-# En caso que se verifique que el texto contenido en el string es un número entero positivo, retornarlo convertido en entero
+    Recibe un string que representa el texto a validar, un string que representa un valor por defecto (parámetro opcional, inicializarlo con ‘-’)
+
+    En caso que el parámetro recibido sea solo texto retorna el mismo convertido todo a minúsculas, en caso
+    '''
+#------------------------------------------------3.3------------------------------------------------------------------
+
+# 3.3- Crear la función ‘sanitizar_string’ la cual recibirá como parámetro
+# valor_str: un string que representa el texto a validar
+# valor_por_defecto: un string que representa un valor por defecto (parámetro opcional, inicializarlo con ‘-’)
+# La función deberá analizar el string recibido y determinar si es solo texto (sin números). En caso de encontrarse números retornar “N/A”
+# En el caso que valor_str contenga una barra ‘/’ deberá ser reemplazada por un espacio
+# 	El espacio es un caracter válido 
+# En caso que se verifique que el parámetro recibido es solo texto, se deberá retornar el mismo convertido todo a minúsculas
+# En el caso que el texto a validar se encuentre vacío y que nos hayan pasado un valor por defecto, entonces retornar el valor por defecto convertido a minúsculas
+# Quitar los espacios en blanco de atras y adelante de ambos parámetros en caso que los tuviese
+
 
 
 
