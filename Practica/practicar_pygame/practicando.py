@@ -1,5 +1,3 @@
-from distutils import core
-from secrets import randbelow
 import pygame, sys, random
 pygame.init()
 
@@ -40,7 +38,7 @@ while True:
         pygame.draw.circle(screen, NARANJA, coordenada, 5)
 
         coordenada[1] += 1 #van cayendo los que son y
-        if(coordenada > 500):
+        if(coordenada[1] > 500):
             coordenada[1] = 0 #para que cuando lleguen al final, vuelvan a caer
 
     pygame.display.flip()
