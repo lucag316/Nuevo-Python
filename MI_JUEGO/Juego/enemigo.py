@@ -1,8 +1,6 @@
 import pygame
 from auxiliar import *
 
-
-
 # class EnemigoBase:
 #     def __init__(self, x, y) -> None:
         
@@ -17,7 +15,6 @@ from auxiliar import *
 #         self.move_x = 0
 #         self.move_y = 0
 
-
         # def update(self):
                 
         #         if(self.frame < len(self.animation) -1):
@@ -30,7 +27,6 @@ from auxiliar import *
 
 #             self.image = self.animation[self.frame]
 #             screen.blit(self.image, self.rect)
-
 
 #     def colicion(self, pos_xy):
 #         if(self.rect.colliderect(pos_xy)):
@@ -100,14 +96,12 @@ class Gelatina:
 
 
     def update(self):
-        
         if(self.frame < len(self.animation) -1):
             self.frame += 1
         else:
             self.frame = 0
 
     def draw(self, screen):
-
         if self.vida == 1:
 
             self.image = self.animation[self.frame]

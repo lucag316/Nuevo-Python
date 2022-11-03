@@ -14,3 +14,6 @@ ALTO_VENTANA = 700
 FPS = 60
 
 PATH_IMAGE = "Nuevo-Python\yo\JUEGO\CLASE_19_inicio_juego\images"
+
+DIRECTION_LEFT = 0
+DIRECTION_RIGHT = 1

@@ -23,7 +23,3 @@ class Auxiliar:
 
                 lista.append(surface_fotograma)
         return lista
-
-
-
-
