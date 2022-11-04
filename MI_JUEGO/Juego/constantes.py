@@ -17,3 +17,8 @@ PATH_IMAGE = "Nuevo-Python\yo\JUEGO\CLASE_19_inicio_juego\images"
 
 DIRECTION_LEFT = 0
 DIRECTION_RIGHT = 1
+
+DEBUG = True
+
+GROUND_RECT_H = 5
+GROUND_LEVEL = 500

@@ -2,6 +2,7 @@ import pygame, sys
 from constantes import *
 from player import Player
 from enemigo import *
+from plataforma import Platform
 
 pygame.init()
 
@@ -18,6 +19,11 @@ enemy_one = Jabba(500, 450)
 enemy_two = Gelatina(200,450)
 enemy_three = Piedra(600, 525)
 #enemy_four = Rude(700, 450)
+
+
+lista_plataformas = []
+lista_plataformas.append(Platform(400,500,50,50,1))
+lista_plataformas.append(Platform(480,500,50,50,1))
 
 while True:
     for event in pygame.event.get():
@@ -44,6 +50,15 @@ while True:
                 player_one.control("STAY_R")
 
     screen.blit(imagen_fondo, imagen_fondo.get_rect())
+
+
+
+    for plataforma in lista_plataformas:
+        plataforma.draw(screen)
+
+        
+
+
     # ---------PLAYER UPDATE------------- verifica como el player intercatua con todo el nivel
     player_one.update()
     player_one.draw(screen)

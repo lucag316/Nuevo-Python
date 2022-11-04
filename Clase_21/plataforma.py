@@ -2,9 +2,6 @@ import pygame
 from constantes import *
 from auxiliar import Auxiliar
 
-
-
-
 class Platform:
     
     def __init__(self,x,y,w,h,type=0):
