@@ -112,38 +112,103 @@ class Gelatina:
         if(self.rect.colliderect(pos_xy)):
             self.vida = 0
 
-class Piedra:
 
-    def __init__(self, x, y) -> None:
-        self.vida = 1
-        self.stay = Auxiliar.getSurfaceFromSpriteSheet(r"C:\Users\luca_\Desktop\Nuevo python\Nuevo-Python\MI_JUEGO\Recursos\npc_fox_ranger\npc_fox_ranger__x1_idle2_png_1354839637.png", 15, 6)
-        self.frame = 0
 
-        self.animation = self.stay
-        self.image = self.animation[self.frame]
-        self.rect = self.image.get_rect()
-        self.rect.x = x
-        self.rect.y = y
-        self.move_x = 0
-        self.move_y = 0
+
+
+
+
+
+
+
+
+
+
+# class Piedra:
+
+#     def __init__(self, x, y) -> None:
+#         self.vida = 1
+#         self.stay = Auxiliar.getSurfaceFromSpriteSheet(r"C:\Users\luca_\Desktop\Nuevo python\Nuevo-Python\MI_JUEGO\Recursos\npc_fox_ranger\npc_fox_ranger__x1_idle2_png_1354839637.png", 15, 6)
+#         self.frame = 0
+
+#         self.animation = self.stay
+#         self.image = self.animation[self.frame]
+#         self.rect = self.image.get_rect()
+#         self.rect.x = x
+#         self.rect.y = y
+#         self.move_x = 0
+#         self.move_y = 0
 
     
-    def update(self):
-        if(self.frame < len(self.animation) -1):
-            self.frame += 1
-        else:
-            self.frame = 0
+#     def update(self):
+#         if(self.frame < len(self.animation) -1):
+#             self.frame += 1
+#         else:
+#             self.frame = 0
 
-    def draw(self, screen):
-        if self.vida == 1:
+#     def draw(self, screen):
+#         if self.vida == 1:
 
-            self.image = self.animation[self.frame]
-            screen.blit(self.image, self.rect)
+#             self.image = self.animation[self.frame]
+#             screen.blit(self.image, self.rect)
 
     
-    def colicion(self, pos_xy):
-        if(self.rect.colliderect(pos_xy)):
-            self.vida = 0
+#     def colicion(self, pos_xy):
+#         if(self.rect.colliderect(pos_xy)):
+#             self.vida = 0
+
+
+
+
+
+
+
+
+
+
+
+
+# class Hongo:
+
+#     def __init__(self, x, y) -> None:
+#         self.vida = 1
+#         self.stay = Auxiliar.getSurfaceFromSpriteSheet(r"C:\Users\luca_\Desktop\Nuevo python\Nuevo-Python\MI_JUEGO\Recursos\street_spirit_zutto\street_spirit_zutto_cap_capAqua_x1_lower_png_1354833718.png", 6, 5)
+#         self.frame = 0
+
+#         self.animation = self.stay
+#         self.image = self.animation[self.frame]
+#         self.rect = self.image.get_rect()
+#         self.rect.x = x
+#         self.rect.y = y
+#         self.move_x = 0
+#         self.move_y = 0
+
+    
+#     def update(self):
+#         if(self.frame < len(self.animation) -1):
+#             self.frame += 1
+#         else:
+#             self.frame = 0
+
+#     def draw(self, screen):
+#         if self.vida == 1:
+
+#             self.image = self.animation[self.frame]
+#             screen.blit(self.image, self.rect)
+
+    
+#     def colicion(self, pos_xy):
+#         if(self.rect.colliderect(pos_xy)):
+#             self.vida = 0
+
+
+
+
+
+
+
+
+
 
 
 # class Rude:
