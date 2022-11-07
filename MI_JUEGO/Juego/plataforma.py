@@ -2,6 +2,8 @@ import pygame
 from constantes import *
 from auxiliar import Auxiliar
 
+# aca podria haber un metodo o un json para hacer lista de plataformas
+
 class Platform:
     def __init__(self, x, y, w, h, type = 0) -> None:
         self.image = Auxiliar.getSurfaceFromSpriteSheet(r"C:\Users\luca_\Desktop\Nuevo python\Nuevo-Python\MI_JUEGO\Recursos\sheet1.png", 8, 8)[type]
@@ -14,7 +16,6 @@ class Platform:
     def draw(self, screen):
         if(DEBUG):
             pygame.draw.rect(screen, RED, self.rect)
-
         screen.blit(self.image, self.rect)
 
         if(DEBUG):

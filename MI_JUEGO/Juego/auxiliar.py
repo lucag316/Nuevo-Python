@@ -3,23 +3,21 @@ import pygame
 class Auxiliar:
 
     @staticmethod
-    def getSurfaceFromSpriteSheet(path,  columnas, filas, flip = False, step = 1) -> None:
-
+    def getSurfaceFromSpriteSheet(path, columnas, filas, flip = False, step = 1) -> None:
         lista = []
+        surface_imagen = pygame.image.load(path)
 
-        surface = pygame.image.load(path)
-
-        fotograma_ancho = surface.get_width() // columnas 
-        fotograma_alto = surface.get_height() // filas
+        fotograma_ancho = int(surface_imagen.get_width() / columnas)
+        fotograma_alto = int(surface_imagen.get_height() / filas)
+        x = 0
 
         for fila in range(filas):
             for columna in range(0, columnas, step):
                 x = columna * fotograma_ancho
                 y = fila * fotograma_alto
-
-                surface_fotograma = surface.subsurface(x, y, fotograma_ancho, fotograma_alto)
+                #print(x, y, fotograma_ancho, fotograma_alto)
+                surface_fotograma = surface_imagen.subsurface(x, y, fotograma_ancho, fotograma_alto)
                 if flip:
-                    surface_fotograma = pygame.transform.flip(surface_fotograma, True, False)
-
+                    surface_fotograma = pygame.transform.flip(surface_fotograma, True, False)   # True es el x, False el y
                 lista.append(surface_fotograma)
         return lista
