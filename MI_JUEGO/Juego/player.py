@@ -34,10 +34,10 @@ class Player:
 
         self.animation = self.angry
         self.image = self.animation[self.frame] # agarro esa imagen en particular y despues pido el rectangulo
-        self.rect = self.image.get_rect()
+        self.rect = self.image.get_rect(x = x, y = y)
 
-        self.rect.x = x   # donde empieza el personaje
-        self.rect.y = y   # donde empieza el personaje
+        # self.rect.x = x   # donde empieza el personaje
+        # self.rect.y = y   # donde empieza el personaje
 
         self.frame_rate_ms = frame_rate_ms
         self.tiempo_transcurrido_animacion = 0
@@ -45,7 +45,7 @@ class Player:
         self.move_rate_ms = move_rate_ms
 
         self.rect_ground_collition = pygame.Rect(self.rect.x + self.rect.w / 3, self.rect.y + self.rect.h - GROUND_RECT_H, self.rect.w / 4, GROUND_RECT_H)
-
+        self.rect_cuerpo = pygame.Rect(self.rect.x + self.rect.w / 3, self.rect.y, self.rect.w / 3.5, self.rect.h)
 
     def walking(self, direction):
         if(self.direction != direction or (self.animation != self.walk_r and self.animation != self.walk_l)):
@@ -179,10 +179,12 @@ class Player:
     def add_x(self, delta_x): # para mover los rectangulos
         self.rect.x += delta_x
         self.rect_ground_collition.x += delta_x
+        self.rect_cuerpo.x += delta_x
 
     def add_y(self, delta_y):  # para mover los rectangulos
         self.rect.y += delta_y
         self.rect_ground_collition.y += delta_y
+        self.rect_cuerpo.y += delta_y
 
 
     def do_animation(self, delta_ms):
@@ -203,8 +205,10 @@ class Player:
     
     def draw(self, screen):
         if(DEBUG):
-            pygame.draw.rect(screen, RED, self.rect)
+        #    pygame.draw.rect(screen, RED, self.rect)
+            pygame.draw.rect(screen, BLUE, self.rect_cuerpo)
             pygame.draw.rect(screen, GREEN, self.rect_ground_collition)
+            
         self.image = self.animation[self.frame]
         screen.blit(self.image, self.rect)              #que quiero fundir, donde la quiero fundir
         

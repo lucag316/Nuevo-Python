@@ -16,16 +16,19 @@ imagen_fondo = pygame.image.load(r"C:\Users\luca_\Desktop\Nuevo python\Nuevo-Pyt
 imagen_fondo = pygame.transform.scale(imagen_fondo, (ANCHO_VENTANA, ALTO_VENTANA))
 
 #player_one = Player(0, 0, 4, 8, 15) forma mas fea
-player_one = Player(x = 0, y = 300, speed_walk = 4, speed_run = 8, gravity = 15, jump = 25, frame_rate_ms = 20, move_rate_ms = 10, height_jump = 150) #podria agregarle el jump por ejemplo
+player_one = Player(x = 0, y = 300, speed_walk = 4, speed_run = 8, gravity = 10, jump = 25, frame_rate_ms = 20, move_rate_ms = 10, height_jump = 150) #podria agregarle el jump por ejemplo
 
-enemy_one = Jabba(500, 450)
-enemy_two = Gelatina(200,450)
+# enemy_one = Jabba(400, 450, 200, 500, 15)
+#enemy_two = Gelatina(200,450, 20)
 # enemy_three = Piedra(600, 525)
 # enemy_four = Hongo(330, 330)
 #enemy_four = Rude(700, 450)
+orco = OrkAxe(400, 75, 3, 150, 950)
+orco_martillo = OrkHammer(1050, 225, 0)
+orco_espada = OrkSword(450, 355, 5, 425, 900)
 
 plataforma_x = 400
-plataforma_y = 500
+plataforma_y = 505
 plataforma_w = 50
 plataforma_h = 50
 
@@ -110,16 +113,33 @@ while True:
 
 
     #----------ENEMIGOS UPDATE-----------
-    enemy_one.update()
-    enemy_one.draw(screen)
-    enemy_one.mover()
-    enemy_one.colicion(player_one.rect)
+    orco.controlar_ruta()
+    orco.update()
+    orco.mover()
+    orco.draw(screen)
+    orco.colicion(player_one.rect_cuerpo)
+    
+    orco_martillo.update()
+    orco_martillo.draw(screen)
+    orco_martillo.colicion(player_one.rect_cuerpo)
+    
+    orco_espada.controlar_ruta()
+    orco_espada.update()
+    orco_espada.mover()
+    orco_espada.draw(screen)
+    orco_espada.colicion(player_one.rect_cuerpo)
+
+    # enemy_one.controlar_ruta()
+    # enemy_one.update()
+    # enemy_one.draw(screen)
+    # enemy_one.mover()
+    # enemy_one.colicion(player_one.rect)
 
 
-    enemy_two.update()
-    enemy_two.draw(screen)
-    enemy_two.mover()
-    enemy_two.colicion(player_one.rect)
+    # enemy_two.update()
+    # enemy_two.draw(screen)
+    # enemy_two.mover()
+    # enemy_two.colicion(player_one.rect)
 
     # enemy_three.update()
     # enemy_three.draw(screen)
@@ -139,5 +159,3 @@ while True:
     #----------DIBUJAR TODOO EL NIVEL---------------
 
     pygame.display.flip()
-    
-   
