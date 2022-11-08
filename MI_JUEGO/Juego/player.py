@@ -161,8 +161,6 @@ class Player:
             #     self.jump = False # SACAR
 
 
-
-
     def is_on_platform(self, lista_plataformas):
         retorno = False
         if(self.rect.y >= GROUND_LEVEL):
@@ -174,7 +172,6 @@ class Player:
                     break
 
         return retorno
-
 
     def add_x(self, delta_x): # para mover los rectangulos
         self.rect.x += delta_x
@@ -196,7 +193,6 @@ class Player:
                 self.frame += 1
             else:
                 self.frame = 0
-
 
     def update(self, delta_ms, lista_plataformas):
         self.do_movement(delta_ms, lista_plataformas)
