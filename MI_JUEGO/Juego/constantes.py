@@ -11,6 +11,7 @@ PINK = (255, 0, 157)
 
 ANCHO_VENTANA = 1300
 ALTO_VENTANA = 700
+GROUND_LEVEL = 500
 FPS = 60
 
 PATH_IMAGE = "Nuevo-Python\yo\JUEGO\CLASE_19_inicio_juego\images"
@@ -18,7 +19,7 @@ PATH_IMAGE = "Nuevo-Python\yo\JUEGO\CLASE_19_inicio_juego\images"
 DIRECTION_LEFT = 0
 DIRECTION_RIGHT = 1
 
-DEBUG = True
+GROUND_RECT_H = 5   
+# GROUND_COLLIDE_H = 8 # Aprox Gravedad/2 + 1   creo que es lo mismo que el de arriba
 
-GROUND_RECT_H = 5
-GROUND_LEVEL = 500
+DEBUG = True
