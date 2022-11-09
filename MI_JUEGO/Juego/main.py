@@ -16,7 +16,7 @@ imagen_fondo = pygame.image.load(r"C:\Users\luca_\Desktop\Nuevo python\Nuevo-Pyt
 imagen_fondo = pygame.transform.scale(imagen_fondo, (ANCHO_VENTANA, ALTO_VENTANA))
 
 #player_one = Player(0, 0, 4, 8, 15) forma mas fea
-player_one = Player(x = 0, y = 300, speed_walk = 4, speed_run = 8, gravity = 14, jump = 30, frame_rate_ms = 20, move_rate_ms = 10, height_jump = 150) #frame_rate_ms=100,move_rate_ms=50,jump_height=140,p_scale=0.2,interval_time_jump=300)
+player_one = Player(x = 0, y = 300, speed_walk = 4, speed_run = 8, gravity = 10, jump = 20, frame_rate_ms = 20, move_rate_ms = 10, height_jump = 150) #frame_rate_ms=100,move_rate_ms=50,jump_height=140,p_scale=0.2,interval_time_jump=300)
 
 # enemy_one = Jabba(400, 450, 200, 500, 15)
 #enemy_two = Gelatina(200,450, 20)
@@ -158,7 +158,7 @@ while True:
     # enemigos update
     # player dibujarlo
     # dibujar todo el nivel
-    
+
     pygame.display.flip()
 
     #print(delta_ms)

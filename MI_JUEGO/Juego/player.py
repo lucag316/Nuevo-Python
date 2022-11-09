@@ -2,7 +2,6 @@ import pygame
 from constantes import *
 from auxiliar import *
 
-
 class Player:
     def __init__(self, x, y, speed_walk, speed_run, gravity, jump, frame_rate_ms, move_rate_ms, height_jump, interval_time_jump = 100) -> None: # p_scale podria agregar, no se bien que es
         # self.walk_r = Auxiliar.getSurfaceFromSpriteSheet("images/caracters/stink/walk.png",15,1,scale=p_scale)[:12] del profe
@@ -42,7 +41,7 @@ class Player:
         self.rect_cuerpo = pygame.Rect(self.rect.x + self.rect.w / 3, self.rect.y, self.rect.w / 3.5, self.rect.h)
 
         self.is_jump = False
-        # self.is_fall = False
+        self.is_fall = False
         # self.is_shoot = False
         # self.is_knife = False
 
@@ -55,20 +54,19 @@ class Player:
         self.tiempo_last_jump = 0 # en base al tiempo transcurrido general
         self.interval_time_jump = interval_time_jump
 
-        
 
     def walking(self, direction):
-    #if(self.is_jump == False and self.is_fall == False):
-        if(self.direction != direction or (self.animation != self.walk_r and self.animation != self.walk_l)):
-            self.frame = 0
-            self.direction = direction
-            
-        if(direction == DIRECTION_RIGHT):
-            self.mover_x = self.speed_walk
-            self.animation = self.walk_r
-        else:
-            self.mover_x = -self.speed_walk
-            self.animation = self.walk_l
+        if(self.is_jump == False and self.is_fall == False):
+            if(self.direction != direction or (self.animation != self.walk_r and self.animation != self.walk_l)):
+                self.frame = 0
+                self.direction = direction
+                
+            if(direction == DIRECTION_RIGHT):
+                self.mover_x = self.speed_walk
+                self.animation = self.walk_r
+            else:
+                self.mover_x = -self.speed_walk
+                self.animation = self.walk_l
 
     # def shoot(self,on_off = True):
     #     self.is_shoot = on_off
@@ -93,14 +91,14 @@ class Player:
 
 
     def jumping(self, on_off = True):
-        if(on_off and self.is_jump == False): # and self.is_fall == False
+        if(on_off and self.is_jump == False and self.is_fall == False): # and self.is_fall == False
             self.start_jump_y = self.rect.y
             if(self.direction == DIRECTION_RIGHT):
-                self.mover_x = self.speed_walk     # int(self.move_x / 2)
+                self.mover_x = int(self.mover_x / 2) #self.speed_walk     # int(self.move_x / 2)
                 self.mover_y = -self.jump
                 self.animation = self.jump_r
             else:
-                self.mover_x = -self.speed_walk # int(self.move_x / 2)
+                self.mover_x = int(self.mover_x / 2) #-self.speed_walk # int(self.move_x / 2)
                 self.mover_y = -self.jump
                 self.animation = self.jump_l
 
@@ -122,7 +120,6 @@ class Player:
             self.mover_y = 0
             self.frame = 0
             
-
     def add_x(self, delta_x): # para mover los rectangulos #CHANGE X (BUEN NOMBRE PARA EL METODO)
         self.rect.x += delta_x
         self.rect_ground_collition.x += delta_x
@@ -132,7 +129,6 @@ class Player:
         self.rect.y += delta_y
         self.rect_ground_collition.y += delta_y
         self.rect_cuerpo.y += delta_y
-
 
     def do_movement(self, delta_ms, lista_plataformas):
         self.tiempo_transcurrido_move += delta_ms
@@ -145,14 +141,13 @@ class Player:
             self.add_y(self.mover_y)
 
             if(not self.is_on_platform(lista_plataformas)):
-                # if(self.move_y == 0):
-                #     self.is_fall = True
-                self.add_y(self.gravity) # esto iria adentro del if de arriba
-            # else:
-            #     if (self.is_jump): 
-            #         self.jump(False)
-            #     self.is_fall = False
-
+                if(self.mover_y == 0):
+                    self.is_fall = True
+                    self.add_y(self.gravity) # esto iria adentro del if de arriba
+            else:
+                if (self.is_jump): 
+                    self.jumping(False)
+                self.is_fall = False
 
     def is_on_platform(self, lista_plataformas):
         retorno = False
@@ -166,7 +161,6 @@ class Player:
 
         return retorno
 
-    
     def do_animation(self, delta_ms):
         self.tiempo_transcurrido_animacion += delta_ms
         if(self.tiempo_transcurrido_animacion >= self.frame_rate_ms): # cada cuantos  milisegundos se actualiza el frame(fotograma) (frame_rate_ms)
@@ -191,7 +185,6 @@ class Player:
         self.image = self.animation[self.frame]
         screen.blit(self.image, self.rect)              #que quiero fundir, donde la quiero fundir
         
-
     def events_keys(self, keys, delta_ms): # si fuera ej el enemigo le puedo poner tiempo ( 2 seg para la derecha, 2 seg para laizquierda)
         self.tiempo_transcurrido += delta_ms
 
@@ -207,7 +200,6 @@ class Player:
         if(keys[pygame.K_RIGHT] and keys[pygame.K_LEFT] and not keys[pygame.K_UP]):
             self.staying()
 
-   
         if(keys[pygame.K_UP]):
             if((self.tiempo_transcurrido - self.tiempo_last_jump) > self.interval_time_jump):
                 self.jumping(True)
