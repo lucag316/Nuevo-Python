@@ -19,7 +19,6 @@ class EnemigoBase:
         self.direction = DIRECTION_RIGHT
 
     def update(self):
-            
             if(self.frame < len(self.animation) -1):
                 self.frame += 1
             else:
@@ -37,6 +36,18 @@ class EnemigoBase:
 
 
 
+class Coconut(EnemigoBase):
+    def __init__(self, cordenada_x, cordenada_y, speed_walk, animacion) -> None:
+        # self.stay = "C:\Users\luca_\Desktop\Nuevo python\Nuevo-Python\MI_JUEGO\Recursos\street_spirit_groddle\street_spirit_groddle_base_base_L1wood_bottom_bottom_L1woodRoots_eyes_eyes_L1eyes1_skull_skull_L1wood_top_top_L1woodLeafHat_x1_idle_hold_png_1354835649.png")
+        # "C:\Users\luca_\Desktop\Nuevo python\Nuevo-Python\MI_JUEGO\Recursos\street_spirit_groddle\street_spirit_groddle_base_base_L1wood_bottom_bottom_L1woodRoots_eyes_eyes_L1eyes2_skull_skull_L1wood_top_top_L1woodLeafHat_x1_idle_move_png_1354835704.png")
+
+        self.atack = Auxiliar.getSurfaceFromSpriteSheet(r"C:\Users\luca_\Desktop\Nuevo python\Nuevo-Python\MI_JUEGO\Recursos\street_spirit_groddle\street_spirit_groddle_base_base_L1wood_bottom_bottom_L1woodRoots_eyes_eyes_L1eyes3_skull_skull_L1wood_top_top_L1woodLeafHat_x1_open_png_1354835735.png", )
+        
+        super().__init__(cordenada_x, cordenada_y, speed_walk, animacion)
+
+
+
+
 class OrkAxe(EnemigoBase):
     def __init__(self, x, y, speed_walk, minimo_x, maximo_x) -> None:
         #self.stay = Auxiliar.getSurfaceFromSeparateFiles(r"C:\Users\luca_\Desktop\Nuevo python\Nuevo-Python\MI_JUEGO\Recursos\ork_hammer\IDLE\idle_00{0}.png", 6, False, 1, 1, 120, 150, 7)
@@ -48,7 +59,6 @@ class OrkAxe(EnemigoBase):
         self.minimo_x = minimo_x
         self.maximo_x = maximo_x
         self.retrocediendo = False
-
 
     def controlar_ruta(self):
         if self.retrocediendo:
@@ -66,8 +76,6 @@ class OrkAxe(EnemigoBase):
     
     def mover(self):
         self.rect.x += self.move_x
-
-        
 
 class OrkHammer(EnemigoBase):
     def __init__(self, x, y, speed_walk) -> None:

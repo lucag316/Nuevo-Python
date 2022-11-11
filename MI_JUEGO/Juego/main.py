@@ -23,9 +23,11 @@ player_one = Player(x = 0, y = 300, speed_walk = 4, speed_run = 8, gravity = 10,
 # enemy_three = Piedra(600, 525)
 # enemy_four = Hongo(330, 330)
 #enemy_four = Rude(700, 450)
+
 orco = OrkAxe(400, 75, 3, 150, 950)
 orco_martillo = OrkHammer(1050, 225, 0)
 orco_espada = OrkSword(450, 355, 5, 425, 900)
+coco = Coconut()
 
 plataforma_x = 400
 plataforma_y = 505
@@ -123,6 +125,11 @@ while True:
     orco_espada.mover()
     orco_espada.draw(screen)
     orco_espada.colicion(player_one.rect_cuerpo)
+
+
+    coco.update()
+    coco.draw(screen)
+    coco.colicion(player_one.rect_cuerpo)
 
     # enemy_one.controlar_ruta()
     # enemy_one.update()
